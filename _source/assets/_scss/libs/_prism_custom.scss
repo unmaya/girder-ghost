@@ -1,0 +1,26 @@
+code[class*="language-"],
+pre[class*="language-"] {
+	@include font-size(.8rem);
+	color: #333;
+  line-height: 1.8;
+  max-width: 100%;
+  word-wrap: normal; // prohibit wrapping within code blocks; scroll x overflow
+  word-break: normal; // prohibit wrapping within code blocks; scroll x overflow
+}
+
+code {
+  border-color: #999;
+}
+
+pre[class*="language-"] code[class*="language-"] {
+  word-wrap: break-word; // allow wrapping within content blocks
+  word-break: break-all; // allow wrapping within content blocks
+}
+
+pre[class*="language-"] {
+  margin-bottom: 30px;
+  border-color: #999;
+}
+
+// normalize line-height for inline code
+:not(pre) > code[class*="language-"] { line-height: inherit; }

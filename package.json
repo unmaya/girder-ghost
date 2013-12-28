@@ -1,0 +1,50 @@
+{
+  "name": "girder-ghost",
+  "version": "0.8.81",
+  "description": "A Ghost theme",
+  "url": "http://ghost.fredmaya.com",
+  "copyright": "2014",
+  "license": "MIT",
+  "author": {
+    "name": "Fred Maya",
+    "email": "hello@comfypixel.com",
+    "url": "http://fredmaya.com"
+  },
+  "keywords": [
+    "ghost",
+    "blog",
+    "theme",
+    "medium"
+  ],
+  "devDependencies": {
+    "matchdep": "~0.3.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-imagemin": "~0.3.0",
+    "grunt-contrib-jshint": "~0.7.0",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-compass": "~0.1.1rc8",
+    "grunt-parallel": "~0.0.2",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-csscss": "~0.6.1",
+    "grunt-rev": "~0.1.0",
+    "grunt-svgmin": "~0.2.0",
+    "grunt-usemin": "~2.0.0",
+    "grunt-push-release": "~0.1.1",
+    "grunt-conventional-changelog": "~1.0.0",
+    "grunt-csso": "~0.5.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt --verbose",
+    "postinstall": "bundle install && bower install"
+  }
+}

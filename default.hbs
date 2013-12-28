@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}" />
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="{{meta_title}}">
+	<meta name="twitter:description" content="{{meta_description}}">
+	{{! Twitter username for the site owner and content author }}
+	<meta name="twitter:site" content="@yourblogtwitter">
+	<meta name="twitter:creator" content="@yourtwitter">
+
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="{{meta_title}}">
+	<meta property="og:description" content="{{meta_description}}">
+
+	<script src="//use.edgefonts.net/source-sans-pro;pt-sans-narrow;lato:n1,n3,n9,i9.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/9cf1471e.site.css" />
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+	{{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+
+<header id="site-head"{{#if @blog.cover}} class="cover"{{/if}}>
+	<div class="inner">
+		{{#if @blog.logo}}
+			<a class="js-ajax-link js-show-index" id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>
+		{{else}}
+			<a class="js-ajax-link js-show-index" id="blog-logo" href="{{@blog.url}}"><img src="/assets/img/girder-logo-white.png" alt="Girder Ghost Logo" /></a>
+		{{/if}}
+			<h1 class="blog-title"><a class="js-ajax-link js-show-index" id="blog-logo-title" href="{{@blog.url}}">{{@blog.title}}</a></h1>
+	</div>
+	{{#if @blog.cover}}
+		<div id="site-cover" style="background-image: url({{@blog.cover}})"></div>
+	{{else}}
+		<div id="site-cover" class="girder-ghost-cover"></div>
+	{{/if}}
+</header>
+
+<section id="wrapper" class="container">
+	<div id="ajax-container">
+		{{{body}}}
+	</div>
+</section>
+
+<footer class="site-footer">
+	<a class="thetheme" href="https://github.com/unmaya/ghost-play"><small>Ghost Theme</small></a>
+	<div class="inner">
+		<section class="copyright">All content by <a href="/">{{@blog.title}}</a> &copy; 2013 &bull; All rights reserved.</section>
+		<section class="poweredby"><small>Published with <a class="icon-ghost" href="http://ghost.org">Ghost</a> - Theme by <a href="http://comfypixel.com">Comfy Pixel</a>.</small></section>
+	</div>
+</footer>
+
+{{! Ghost outputs important scripts and data with this tag }}
+{{ghost_foot}}
+
+<script src="/assets/js/a07e8848.site.min.js"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  {{> analytics_config}}
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>

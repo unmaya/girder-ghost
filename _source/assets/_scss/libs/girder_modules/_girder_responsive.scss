@@ -1,0 +1,85 @@
+//////////////////////////////
+// Breakpoints and base media queries for grid units and utilities
+// Optional: install the Breakpoint plugin for Compass to use the breakpoint mixin
+
+@if $use-breakpoint == true {
+	@include breakpoint($single-column) {
+		.row {
+			// Clear for small screens
+			&.equal-units {
+				> :first-of-type {padding-left: 0 !important;}
+				> :last-child {padding-right: 0 !important;}
+			}
+
+			// All units can go full-width here
+			%unit {
+				padding-left: 0;
+				padding-right: 0;
+				width: 100%;
+
+				// Reset push for small viewports
+				left: 0;
+				// Reset neg margin for nested grids
+				margin-left: inherit !important;
+			}
+		}
+	}
+}
+@else {
+	@media (min-width: 10em) and (max-width: $small-breakpoint) {
+		.row {
+			// Clear for small screens
+			&.equal-units {
+				> :first-of-type {padding-left: 0 !important;}
+				> :last-child {padding-right: 0 !important;}
+			}
+
+			// All units can go full-width here
+			%unit {
+				padding-left: 0;
+				padding-right: 0;
+				width: 100%;
+
+				// Reset push for small viewports
+				left: 0;
+				// Reset neg margin for nested grids
+				margin-left: inherit !important;
+			}
+		}
+	}
+}
+
+// Utility classes for centering text and hiding stuff in smaller screens
+@mixin responsive-utilities {
+	.center-small {
+		text-align: inherit;
+		@if $use-breakpoint == true {
+			@include breakpoint($single-column) {
+				text-align: center;
+			}
+		}
+		@else {
+			@media (min-width: 10em) and (max-width: $small-breakpoint) {
+				text-align: center;
+			}
+		}
+	}
+	.hide-small {
+		display: block;
+		@if $use-breakpoint == true {
+			@include breakpoint($single-column) {
+				display: none;
+			}
+		}
+		@else {
+			@media (min-width: 10em) and (max-width: $small-breakpoint) {
+				display: none;
+			}
+		}
+	}
+}
+
+@if $include-extras == true {
+	// Optional: Output classes to hide elements or center text in small screens
+	@include responsive-utilities;
+}

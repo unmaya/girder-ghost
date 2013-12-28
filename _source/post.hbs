@@ -1,0 +1,86 @@
+{{!< default}}
+
+<main class="content row" role="main">
+		<article class="{{post_class}} single">
+
+	<div class="inner">
+			{{#post}}
+
+			<header class="post-header">
+				<div class="post-meta">
+					<time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
+					  {{date published_at timeago="true"}}
+					</time>
+					{{#if tags}}
+					//
+					<strong class="post-meta-item">
+					  {{#foreach tags}}
+					    <span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>
+					  {{/foreach}}
+					</strong>
+					{{/if}}
+				</div>
+
+				<h1 class="post-title">{{{title}}}</h1>
+			</header>
+
+			<section class="post-content">
+				{{content}}
+			</section>
+
+			<section class="post-meta">
+				<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{#if tags}}on {{tags separator=" | "}}{{/if}}
+			</section>
+
+			<footer class="post-footer">
+			{{#if author}}
+			<section itemprop="author" itemscope itemtype="http://schema.org/Person" class="author post-author-info">
+				{{#if author.image}}
+				<a href="{{author.website}}" class="post-author-avatar">
+					<img itemprop="image" src="{{author.image}}" alt="{{author.name}}">
+				</a>
+				{{/if}}
+				<h4><a href="{{author.website}}" itemprop="url" class="post-author-name">
+				<span itemprop="name">{{author.name}}</span></a></h4>
+
+			 	<p itemprop="description" class="post-author-bio">
+					{{author.bio}} <br>
+					<a href="{{author.website}}" rel="nofollow">{{author.website}}</a>
+				</p>
+				{{#if author.website}}
+					<p class="post-author-website">
+					</p>
+				{{/if}}
+			</section>
+			{{/if}}
+
+			<section class="share">
+				<h4>Share this post</h4>
+				<a class="icon-twitter" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
+					onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+					<span class="hidden">Twitter</span>
+				</a>
+				<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+					onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+					<span class="hidden">Facebook</span>
+				</a>
+				<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+					onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+					<span class="hidden">Google+</span>
+				</a>
+			</section>
+			</footer>
+
+			{{!-- Future additions...
+			<aside id="comments" class="post-comments">
+				<h2>Comments</h2>
+				<p><small>(Currently unavailable, coming soon!)</small></p>
+			</aside>
+			--}}
+
+			{{/post}}
+
+	</div>
+		</article>
+
+</main>

@@ -1,0 +1,24 @@
+{
+  "name": "girder-ghost",
+  "version": "0.8.81",
+  "dependencies": {
+    "jquery": "~2.0.3"
+  },
+  "homepage": "http:/ghost.fredmaya.com",
+  "authors": [
+    "Fred Maya <hello@comfypixel.com>"
+  ],
+  "description": "A Ghost theme using Girder CSS",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "_source/assets/_components"
+  ],
+  "devDependencies": {
+    "nprogress": "~0.1.2",
+    "prism": "gh-pages",
+    "girder": "latest"
+  }
+}

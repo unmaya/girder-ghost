@@ -1,0 +1,14 @@
+# Project Environment
+components/
+bower_components/
+node_modules/
+.sass-cache/
+npm-debug.log
+
+# OS Generated files
+.DS_Store
+Thumbs.db
+
+# Editor and Project Settings
+*.sublime-project
+*.sublime-workspace
