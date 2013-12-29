@@ -238,6 +238,9 @@ img {
     max-width: 1140px;
     margin: 0 auto;
 }
+#wrapper {
+    position: relative;
+}
 #site-head {
 	position: relative;
     background-color: #292e33;
@@ -266,6 +269,7 @@ img {
         background-position: left top;
     }
 }
+#blog-logo {display: block;}
 #blog-logo img {
 	display: block;
 	margin: 0 auto;
@@ -281,17 +285,22 @@ img {
     font-weight: 100;
     text-transform: uppercase;
 }
+.blog-title a:link,
+.blog-title a:visited {
+    color: #fff;
+    transition: all 0.5s;
+}
+.blog-title a:hover {
+    color: rgb(255, 255, 111);
+    -webkit-transform: scale(1.03);
+}
+
 #blog-logo-title {
 	display: inline-block;
 	text-align: center;
 	text-decoration: none;
-	color: #fff;
 	padding: 0;
 	margin: 0;
-    transition: color 0.5s;
-}
-#blog-logo-title:hover {
-    color: rgb(255, 255, 111);
 }
 #blog-title {
 	display: inline-block;
@@ -299,13 +308,9 @@ img {
 	font-size: 1em;
 	text-align: center;
 	text-decoration: none;
-	color: #fff;
 	padding: 0 0.6em;
 	margin: 0;
 	border: #fff 0.166em solid;
-}
-#wrapper {
-	position: relative;
 }
 .blog-description {
 	display: block;
@@ -357,17 +362,18 @@ img {
 }
 .first-post {
     // border-bottom: 1px solid #d8dfe5;
-    // padding-bottom: 10px;
+    padding-bottom: 0;
     // margin-bottom: 30px;
 }
 .post-grid {
     @include breakpoint($small-breakpoint) {
         @include responsive-unit(half);
         border-bottom: none !important;
-        height: 260px;
+        // height: 280px;
         padding-top: 0;
         padding-bottom: 0;
         overflow: hidden;
+        position: relative;
 
         .post-title {
             @include adjust-font-size-to(2rem, 2.2);
@@ -521,6 +527,28 @@ img {
 .post-footer .share a:hover {
     color: #50585D;
 }
+
+.post-excerpt .overlay{
+    background-color: #FFFFFF;
+    bottom: 0;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    &:before {
+        background: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        background: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        content: "";
+        height: 100px;
+        margin-top: 1px;
+        position: absolute;
+        top: -100px;
+        width: 100%;
+    }
+}
+
 
 
 /* ==========================================================================

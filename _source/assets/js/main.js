@@ -25,7 +25,7 @@
 	_prismHandler();
 
 
-	// Identify larger viewports with a little css check
+	// Identify larger viewports with a little css hook
   var isLargeViewport = function() {
     if($('.container').css('z-index') == "10") {
       return true;
@@ -51,8 +51,6 @@
 	}
 
 	trimText('.post-grid .post-title a', 30);
-	trimText('.post-grid .post-excerpt', 90);
-
 
 
 	// Ajax Loading methods
@@ -103,7 +101,6 @@
 
 				_prismHandler();
 				trimText('.post-grid .post-title a', 30);
-				trimText('.post-grid .post-excerpt', 90);
 				NProgress.done();
 
 				$('#site-footer').fadeIn(100);
@@ -161,36 +158,43 @@
 	});
 
 
+	// Theme's header and Nav behavior
+	// ===============================
 	var headerNav = function() {
 
 		var $window = $(window);
 		var $mainContent = $('#wrapper');
-		var $logo = $('#blog-logo');
 		var $header = $('#site-head');
 
-		// logo position
+		// Scroll event handlers
 		$window.scroll(function () {
-			var logoHeight = $logo.height() + 40;
-			var headerHeight = $header.height() - $window.scrollTop();
-			var windowHeight = $(window).height();
+
 			var scrollTop = $(window).scrollTop();
-      var offset = $logo.offset().top;
-      var height = $header.outerHeight();
+			var windowHeight = $(window).height();
+			var headerHeight = $header.height() - $window.scrollTop();
 
-			// Check if above or below viewport
-			if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
-				return;
-			}
+			// Effect only applies if a logo is present and screen is 560px +
+			if ($('#blog-logo').length && isLargeViewport()) {
+				var $logo = $('#blog-logo');
+				var logoHeight = $logo.height() + 40;
+				var offset = $logo.offset().top;
+				var height = $header.outerHeight();
 
-			var yBgPosition = Math.round((offset - scrollTop - 40) * 0.6);
+				// Check if above or below viewport
+				if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
+					return;
+				}
 
-      // Apply the Y Background Position for a subtle Parallax Effect
-			$('#site-cover').css('background-position', 'left ' + yBgPosition + 'px');
+				var yBgPosition = Math.round((offset - scrollTop - 40) * 0.6);
 
-			// if we need to position logo
-			if (headerHeight > logoHeight) {
-				var marginTop = (headerHeight / 2 - logoHeight / 2) + 'px';
-				$logo.parent().css({paddingTop: yBgPosition});
+				// Apply the Y Background Position for a subtle Parallax Effect
+				$('#site-cover').css('background-position', 'left ' + yBgPosition + 'px');
+
+				// To position logo
+				// if (headerHeight > logoHeight) {
+				// 	var marginTop = (headerHeight / 2 - logoHeight / 2) + 'px';
+				// 	$logo.css({marginTop: yBgPosition});
+				// }
 			}
 
 			// if header is completely gone
@@ -211,22 +215,23 @@
 
 		});
 
-		// create second header
-		var siteURL = location.host;
-		var siteName = $('#site-head h1').text().replace(/\s+/g, ' ');
-		var header = $('<nav id="header-nav"><h2 class="heading"><a class="js-ajax-link js-show-index"  href="http://'+ siteURL +'">' + siteName + '</a></h2><a href="#top" id="scroll-to-top"></a></nav>');
-		$('body').prepend(header);
+		// Check for nav and add it to DOM
+		if (!$('#header-nav').length){
+			var siteURL = location.host;
+			var siteName = $('#site-head h1').text().replace(/\s+/g, ' ');
+			var header = $('<nav id="header-nav"><h2 class="heading"><a class="js-ajax-link js-show-index"  href="http://'+ siteURL +'">' + siteName + '</a></h2><a href="#top" id="scroll-to-top"></a></nav>');
+			$('body').prepend(header);
+		}
 
 		// scroll to top button
 		$('#scroll-to-top').click(function (e) {
 			e.preventDefault();
 			$('html, body').animate({scrollTop: 0}, 200);
 		});
-
 	}
 
-	if (isLargeViewport()) {
+	// if (isLargeViewport()) {
 		headerNav();
-	}
+	// }
 
 }(jQuery));
