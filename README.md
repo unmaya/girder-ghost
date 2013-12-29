@@ -1,11 +1,11 @@
 # Girder-Ghost Theme [(Blog)](http://ghost.fredmaya.com)
-This is a startup theme for the Ghost platform. Its also a theme development environment built on NodeJS with GruntJS, Sass, [Girder](https://github.com/unmaya/Girder) and a variety of awesome tools made for Javascript apps. I use it as a starting template for working on themes.
+This is a startup theme for the Ghost platform. Its also a theme development environment I use to play with NodeJS, Sass, [Girder](https://github.com/unmaya/Girder) and other neat tools made for Javascript apps. I use it as a starting template for themes and other experiments.
 
 ## Using the theme
 All you need to do is copy the files in this repo to the theme folder in your Ghost installation: ```/content/themes/girder-ghost/```. Enable the theme in the admin panel then you can add your own background, logo, etc...
 
 ## Development Mode (for the ninja in you)
-All the source files are in the ```/_source/``` folder. This theme's development environment requires Grunt `~0.4.0`. The project already contains a Gruntfile.js pre-configured to test, build and release using an asset pipeline. To get started check that you have the dependencies required to build the project, then you'll need to install the NPM modules and bower components:
+The source files are included in the ```/_source/``` folder. This theme's development environment requires Grunt `~0.4.0`. The project already contains a Gruntfile.js pre-configured to test, build and release using an asset pipeline. To get started check that you have the dependencies required to build the project, then you'll need to install the NPM modules and bower components:
 
 ```shell
 sudo npm install

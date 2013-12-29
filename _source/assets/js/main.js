@@ -25,17 +25,34 @@
 	_prismHandler();
 
 
-	// Excerpts trimmer
+	// Identify larger viewports with a little css check
+  var isLargeViewport = function() {
+    if($('.container').css('z-index') == "10") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+	// Text trimmer
 	// =================
-	var trimExcerpt = function(classname) {
-		$(classname).html(function() {
-			var excerpt = this.innerHTML;
-			var trimmedExcerpt = jQuery.trim(excerpt).substring(0, 90).split(" ").slice(0, -1).join(" ") + "&hellip;";
-			return trimmedExcerpt;
-		});
+	var trimText = function(classname, size) {
+		if (isLargeViewport()) {
+			$(classname).html(function() {
+				var classText = this.innerHTML;
+
+				if (classText.length > size) {
+				var trimmedText = jQuery.trim(classText).substring(0, size).split(" ").slice(0, -1).join(" ") + "&hellip;";
+
+				return trimmedText;
+			}
+			});
+		}
 	}
 
-	trimExcerpt('.post-grid .post-excerpt');
+	trimText('.post-grid .post-title a', 30);
+	trimText('.post-grid .post-excerpt', 90);
+
 
 
 	// Ajax Loading methods
@@ -85,7 +102,8 @@
 				$ajaxContainer.fadeIn(500);
 
 				_prismHandler();
-				trimExcerpt('.post-grid .post-excerpt');
+				trimText('.post-grid .post-title a', 30);
+				trimText('.post-grid .post-excerpt', 90);
 				NProgress.done();
 
 				$('#site-footer').fadeIn(100);
@@ -150,10 +168,6 @@
 		var $logo = $('#blog-logo');
 		var $header = $('#site-head');
 
-		// // ios < 7 fixed position bug
-		// var ios = iOSversion();
-		// if(ios && ios[0] <= 6) $('body').addClass('no-fixed-elements')
-
 		// logo position
 		$window.scroll(function () {
 			var logoHeight = $logo.height() + 40;
@@ -210,8 +224,9 @@
 		});
 
 	}
-	headerNav();
 
-
+	if (isLargeViewport()) {
+		headerNav();
+	}
 
 }(jQuery));

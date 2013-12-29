@@ -227,6 +227,12 @@ img {
 /* ==========================================================================
    2. Default
    ========================================================================== */
+.container {
+    // Theme JS uses this property as a rough estimate of viewport size
+    @include breakpoint($small-breakpoint) {
+        z-index: 10;
+    }
+}
 .content {
     padding-top: 30px;
     max-width: 1140px;
@@ -358,7 +364,10 @@ img {
     @include breakpoint($small-breakpoint) {
         @include responsive-unit(half);
         border-bottom: none !important;
-        min-height: 200px;
+        height: 260px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
 
         .post-title {
             @include adjust-font-size-to(2rem, 2.2);

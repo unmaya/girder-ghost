@@ -241,6 +241,15 @@ module.exports = function(grunt) {
         files: '<%= dir.src %><%= dir.sass %>/**/*.scss',
         tasks: ['compass:dev']
       },
+      js: {
+        files: '<%= dir.src %><%= dir.js %>/**/*.js',
+        tasks: ['copy:dev']
+      },
+      hbs: {
+        // Copy changes to theme root
+        files: '<%= dir.src %>/**/**/*.hbs',
+        tasks: ['copy:dev']
+      },
       reload: {
         files: ['./js/**/**/**/**/*.js', './assets/css/site.css','app/build/index.html', './*.html'],
         options: {
@@ -367,8 +376,8 @@ module.exports = function(grunt) {
             'partials/**/*',
             '<%= dir.images %>/**/*',
             '<%= dir.fonts %>/**/*',
-            '<%= dir.css %>/**/*'
-            // '<%= dir.js %>/**/*'
+            '<%= dir.css %>/**/*',
+            '<%= dir.js %>/**/*'
           ],
           dest: ''
         },
