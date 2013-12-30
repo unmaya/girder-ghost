@@ -369,7 +369,7 @@ img {
     @include breakpoint($small-breakpoint) {
         @include responsive-unit(half);
         border-bottom: none !important;
-        // height: 280px;
+        height: 300px;
         padding-top: 0;
         padding-bottom: 0;
         overflow: hidden;
