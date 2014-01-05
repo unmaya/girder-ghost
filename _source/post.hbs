@@ -14,8 +14,7 @@
 					{{#if tags}}
 					//
 					<strong class="post-meta-item">
-					  {{#foreach tags}}
-					    <span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>
+					  {{#foreach tags}}<span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>{{#unless @last}}, &nbsp;{{/unless}}
 					  {{/foreach}}
 					</strong>
 					{{/if}}
@@ -28,9 +27,11 @@
 				{{content}}
 			</section>
 
+			{{!--
 			<section class="post-meta">
-				<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{#if tags}}on {{tags separator=" | "}}{{/if}}
+				<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='MMM DD, YYYY'}}</time> {{#if tags}} // {{tags separator=", "}}{{/if}}
 			</section>
+			 --}}
 
 			<footer class="post-footer">
 			{{#if author}}

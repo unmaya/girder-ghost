@@ -386,6 +386,7 @@ img {
         @include responsive-unit(third);
     }
 
+    .post-meta {text-transform: uppercase;}
     .post-title {margin-bottom: 0;}
     .inner {
         width: auto;
