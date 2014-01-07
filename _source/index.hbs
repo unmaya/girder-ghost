@@ -13,7 +13,6 @@
 	<article class="{{post_class}} first-post">
 
 		<div class="inner">
-
 		<header class="post-header">
 			<div class="post-meta">
 				<time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
@@ -22,9 +21,9 @@
 				{{#if tags}}
 				//
 				<strong class="post-meta-item">
-				  {{#foreach tags}}
-				    <span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>
-				  {{/foreach}}
+					{{#foreach tags}}
+						<span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>{{#unless @last}}, &nbsp;{{/unless}}
+					{{/foreach}}
 				</strong>
 				{{/if}}
 			</div>
@@ -91,8 +90,7 @@
 			</header>
 
 			<section class="post-excerpt">
-				{{!-- <p>{{excerpt}}&hellip;</p> --}}
-				<p>{{excerpt words="25"}}&hellip;</p>
+				<p>{{excerpt words="30"}}&hellip;</p>
 				<div class="overlay"></div>
 			</section>
 		</div>
@@ -116,7 +114,7 @@
 			</header>
 
 			<section class="post-excerpt">
-				<p>{{excerpt words="25"}}&hellip;</p>
+				<p>{{excerpt words="30"}}&hellip;</p>
 				<div class="overlay"></div>
 			</section>
 		</div>

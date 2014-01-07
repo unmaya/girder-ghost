@@ -14,7 +14,7 @@
 					{{#if tags}}
 					//
 					<strong class="post-meta-item">
-					  {{#foreach tags}}<span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>{{#unless @last}}, &nbsp;{{/unless}}
+						{{#foreach tags}}<span itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}">{{name}}</span>{{#unless @last}}, &nbsp;{{/unless}}
 					  {{/foreach}}
 					</strong>
 					{{/if}}

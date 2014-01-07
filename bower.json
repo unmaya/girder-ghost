@@ -1,6 +1,6 @@
 {
   "name": "girder-ghost",
-  "version": "0.8.86",
+  "version": "0.8.88",
   "dependencies": {
     "jquery": "~2.0.3"
   },

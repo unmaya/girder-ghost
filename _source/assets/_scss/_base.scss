@@ -123,9 +123,9 @@ code, tt {
     font-family: 'Inconsolata', monospace, sans-serif;
     font-size: 0.8em;
     white-space: pre;
-    border: 1px solid #292e33;
-    background: #303840;
-    color: #a7bf60;
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #333;
     vertical-align: top;
     border-radius: 2px;
 }
@@ -134,15 +134,15 @@ pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 1.6em 0;
-    border: 1px solid #292e33;
+    border: 1px solid #ccc;
     width: 100%;
     padding: 16px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.8em;
     white-space: pre;
     overflow: auto;
-    background: #303840;
-    color: #a7bf60;
+    background: #eee;
+    color: #333;
     border-radius: 2px;
 }
 

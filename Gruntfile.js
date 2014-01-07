@@ -105,6 +105,7 @@ module.exports = function(grunt) {
 
     /**
      * CSS redundancy analyzer
+     * Requires Ruby 1.9.x
      */
     // csscss: {
     //   options: {
@@ -317,15 +318,6 @@ module.exports = function(grunt) {
       build: {
         files: [
           {
-            expand: true,
-            flatten: true,
-            cwd: '<%= dir.bower %>',
-            src: ['**/font*/*.{svg,eot*,ttf,woff,otf}'],
-            dest: '<%= dir.build %><%= dir.fonts %>/',
-            filter: 'isFile'
-          },
-
-          {
             "expand": true,
             flatten: true,
             "cwd": "<%= dir.src %><%= dir.fonts %>",
@@ -404,13 +396,6 @@ module.exports = function(grunt) {
         commitFiles: ['-a'],
         pushTo: 'origin'
       }
-    },
-
-    parallel: {
-      dev: [{
-          grunt: true,
-          args: ['compass:dev']
-      }]
     },
 
     /**
@@ -499,7 +484,7 @@ module.exports = function(grunt) {
    * It monitors the _source folder for scss changes until stopped.
    */
   grunt.registerTask('default', [
-    'parallel:dev',
+    'compass:dev',
     'copy:dev',
     'watch'
   ]);
